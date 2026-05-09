@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend-django
+    container_name: dailyposhan-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend-django:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend-react
+    container_name: dailyposhan-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
