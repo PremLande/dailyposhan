@@ -5,42 +5,42 @@ const PRODUCTS = [
   {
     id: 1,
     name: "Chatori Jar",
-    tagline: "Open up a savory star with every Chato bite.",
-    desc: "Spiced sprouts, crunchy sev, raw mango, onion, and tangy green chutney come together in every jar.",
+    tagline: "Chatpata, desi twist with a healthy punch.",
+    desc: "A crunchy jar salad with chaat spices, sev, fresh veggies and tangy chutney.",
     price: 250,
-    cal: 260,
-    protein: "12g",
-    type: "Jar salad",
+    cal: 270,
+    protein: "8g",
+    type: "Jar Salad",
   },
   {
     id: 2,
     name: "Muscle Fuel Jar",
-    tagline: "Fuel your hustle with power for your meals.",
-    desc: "Protein-packed greens, quinoa, boiled eggs, and spicy chicken combine for a fitness-focused jar.",
+    tagline: "High-protein, plant-forward bowl for strength & recovery.",
+    desc: "Power bowl with paneer, sprouts, nuts and greens — fully plant-forward protein, no meat.",
     price: 250,
-    cal: 420,
-    protein: "34g",
-    type: "Jar salad (protein/fitness focused)",
+    cal: 320,
+    protein: "22g",
+    type: "Jar Salad",
   },
   {
     id: 3,
     name: "Glow & Flow Jar",
-    tagline: "Let the nutrients flow for a fabulous glow.",
-    desc: "Beets, avocado, berries, nuts, and fresh greens blend to support wellness and beauty.",
+    tagline: "Women special salad for glow, balance & energy.",
+    desc: "Radiance jar made with berries, avocado, seeds and greens for natural glow.",
     price: 250,
-    cal: 310,
-    protein: "14g",
-    type: "Jar salad (wellness/beauty focused)",
+    cal: 280,
+    protein: "10g",
+    type: "Jar Salad",
   },
   {
     id: 4,
     name: "Extra Dips",
-    tagline: "Add-on condiments to elevate every bite.",
-    desc: "Choose extra dips for a tangy or creamy finish with any jar.",
+    tagline: "Add-on dressings to complete every jar.",
+    desc: "Choose from mint chutney, creamy tahini, or spicy schezwan dip.",
     price: 25,
     cal: 35,
     protein: "0g",
-    type: "Add-on / condiment",
+    type: "Add-on",
   },
 ];
 
@@ -83,7 +83,7 @@ function Header({ count, onCartOpen }) {
         <span className="brand-mark">🍃</span>
         <div>
           <div className="brand-name">Daily Poshan</div>
-          <div className="brand-tag">Healthy Jar Salad Freshly Prepared 😊</div>
+          <div className="brand-tag">Nutritious. Fresh. Wholesome.</div>
         </div>
       </div>
       <button type="button" className="cart-button" onClick={onCartOpen}>
@@ -97,18 +97,33 @@ function Hero({ onBrowse }) {
   return (
     <section className="hero-section">
       <div className="hero-copy">
-        <span className="eyebrow">Daily Poshan</span>
-        <h1>Fresh jar salads, built for fast ordering.</h1>
-        <p>Nutrition-forward jars with clean ingredients, presented like a modern delivery menu.</p>
+        <div className="hero-banner">Launch Day! Flat 20% off on all orders for a week</div>
+        <span className="eyebrow">Daily Poshan Jar Salads</span>
+        <h1>Your daily dose of poshan, packed fresh in every jar.</h1>
+        <p>100% pure veg and vegan-friendly jar salads made with fresh greens, seeds, and clean ingredients.</p>
         <div className="hero-actions">
-          <button type="button" className="primary-button" onClick={onBrowse}>Browse menu</button>
+          <button type="button" className="primary-button" onClick={onBrowse}>Browse Menu</button>
           <a className="secondary-link" href="https://wa.me/919326251314" target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        </div>
+        <div className="hero-logo-strip">
+          <div className="logo-badge">
+            <span className="logo-icon">🌿</span>
+            <span>Pure Veg</span>
+          </div>
+          <div className="logo-badge">
+            <span className="logo-icon">🥗</span>
+            <span>Vegan-friendly</span>
+          </div>
+          <div className="logo-badge">
+            <span className="logo-icon">✔️</span>
+            <span>100% fresh ingredients</span>
+          </div>
         </div>
       </div>
       <div className="hero-tray">
         <div className="hero-chip">₹250 per jar</div>
-        <div className="hero-chip">25 min</div>
-        <div className="hero-chip">Vegetarian-friendly</div>
+        <div className="hero-chip">Freshly made</div>
+        <div className="hero-chip">No preservatives</div>
       </div>
     </section>
   );
@@ -237,10 +252,10 @@ export default function App() {
         <section className="section" id="menu-section">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Fresh Jar Salads</p>
-              <h2>Order healthy jars with a restaurant menu layout.</h2>
+              <p className="eyebrow">Today's Specials</p>
+              <h2>Choose your nutrient-rich jar for energy, glow, or digestion.</h2>
             </div>
-            <p className="section-note">A Zomato-style menu look and modern checkout experience.</p>
+            <p className="section-note">100% pure veg & vegan-friendly jars with fresh ingredients, balanced macros, and simple WhatsApp ordering.</p>
           </div>
 
           <div className="menu-layout">
@@ -249,14 +264,14 @@ export default function App() {
                 <div className="restaurant-meta">
                   <div>
                     <h3>Daily Poshan</h3>
-                    <p>Trendiest jar salads, vibrant toppings, and local delivery.</p>
+                    <p>Freshly prepared jar salads with clean ingredients and bold flavours.</p>
                   </div>
                   <span className="rating-pill">4.9 ★</span>
                 </div>
                 <div className="restaurant-stats">
                   <span>₹250 per jar</span>
-                  <span>25 min</span>
-                  <span>100% veg-friendly</span>
+                  <span>Launch offer</span>
+                  <span>100% pure veg & vegan-friendly</span>
                 </div>
               </div>
 
