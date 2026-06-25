@@ -116,6 +116,9 @@ This will:
 
 - **Frontend:** http://localhost:5173 (or http://localhost if mapped)
 - **API:** http://localhost/api
+- **Prometheus:** http://localhost:9090
+- **Grafana:** http://localhost:3000
+- **Jaeger UI:** http://localhost:16686
 
 ### Docker Network
 

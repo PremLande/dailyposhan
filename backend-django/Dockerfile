@@ -6,7 +6,16 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+      build-essential \
+      pkg-config \
+      libssl-dev \
+      libffi-dev \
+    && pip install --upgrade pip setuptools wheel \
+    && pip install -r requirements.txt \
+    && apt-get purge -y --auto-remove build-essential pkg-config \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY . /app
 
