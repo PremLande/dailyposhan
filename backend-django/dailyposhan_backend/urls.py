@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.urls import include, path
 
+from dailyposhan_backend.health import health_check
+
 urlpatterns = [
+    path("api/health/", health_check, name="health-check"),
     path("admin/", admin.site.urls),
     path("api/auth/", include("apps.authentication.urls")),
     path("api/products/", include("apps.products.urls")),

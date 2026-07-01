@@ -10,19 +10,28 @@ processors:
 exporters:
   prometheus:
     endpoint: "0.0.0.0:8889"
-  zipkin:
-    endpoint: "http://jaeger:9411/api/v2/spans"
+  otlp/jaeger:
+    endpoint: jaeger:4317
+    tls:
+      insecure: true
 
 service:
   pipelines:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [zipkin]
+      exporters: [otlp/jaeger]
     metrics:
       receivers: [otlp]
       processors: [batch]
       exporters: [prometheus]
   telemetry:
+    metrics:
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: "0.0.0.0"
+                port: 8888
     logs:
       level: info
