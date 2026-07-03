@@ -1,6 +1,5 @@
 pipeline {
   agent none
-
   stages {
     stage('Checkout') {
       agent any
@@ -8,10 +7,9 @@ pipeline {
         checkout scm
       }
     }
-
     stage('Backend Build & Validate') {
       agent {
-        dockerContainer {
+        docker {
           image 'python:3.12-slim'
           args '-u root:root'
         }
@@ -28,10 +26,9 @@ pipeline {
         }
       }
     }
-
     stage('Frontend Build & Validate') {
       agent {
-        dockerContainer {
+        docker {
           image 'node:20-alpine'
           args '-u root:root'
         }
@@ -47,10 +44,9 @@ pipeline {
         }
       }
     }
-
     stage('Docker Build & Validate') {
       agent {
-        dockerContainer {
+        docker {
           image 'docker:24.0.5'
           args '-u root:root -v /var/run/docker.sock:/var/run/docker.sock'
         }
@@ -68,10 +64,9 @@ pipeline {
       }
     }
   }
-
   post {
     always {
-      cleanWs()
+      deleteDir()
     }
   }
 }
