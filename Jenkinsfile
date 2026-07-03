@@ -11,7 +11,7 @@ pipeline {
 
     stage('Backend Build & Validate') {
       agent {
-        docker {
+        dockerContainer {
           image 'python:3.12-slim'
           args '-u root:root'
         }
@@ -31,7 +31,7 @@ pipeline {
 
     stage('Frontend Build & Validate') {
       agent {
-        docker {
+        dockerContainer {
           image 'node:20-alpine'
           args '-u root:root'
         }
@@ -50,7 +50,7 @@ pipeline {
 
     stage('Docker Build & Validate') {
       agent {
-        docker {
+        dockerContainer {
           image 'docker:24.0.5'
           args '-u root:root -v /var/run/docker.sock:/var/run/docker.sock'
         }
