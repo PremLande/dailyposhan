@@ -13,7 +13,6 @@ pipeline {
       agent {
         dockerContainer {
           image 'python:3.12-slim'
-          args '-u root:root'
         }
       }
       steps {
@@ -33,7 +32,6 @@ pipeline {
       agent {
         dockerContainer {
           image 'node:20-alpine'
-          args '-u root:root'
         }
       }
       steps {
@@ -52,7 +50,6 @@ pipeline {
       agent {
         dockerContainer {
           image 'docker:24.0.5'
-          args '-u root:root -v /var/run/docker.sock:/var/run/docker.sock'
         }
       }
       steps {
