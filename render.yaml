@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: dailyposhan-backend
+    env: python
+    plan: free
+    rootDir: backend-django
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python manage.py migrate && gunicorn dailyposhan_backend.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DJANGO_SETTINGS_MODULE
+        value: dailyposhan_backend.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "*"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dailyposhan-db
+          property: connectionString
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://dailyposhan-frontend.onrender.com,http://localhost:5173"
+
+databases:
+  - name: dailyposhan-db
+    plan: free
+    databaseName: dailyposhan
+    user: dailyposhan
