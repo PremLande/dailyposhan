@@ -1,0 +1,61 @@
+apiVersion: datadoghq.com/v2alpha1
+kind: DatadogAgent
+metadata:
+  name: datadog
+spec:
+  global:
+    site: datadoghq.com
+    clusterName: docker-desktop
+    tags:
+      - "env:dev"
+    env:
+      - name: DD_HOSTNAME
+        value: docker-desktop
+    credentials:
+      apiSecret:
+        secretName: datadog-secret
+        keyName: api-key
+      appSecret:
+        secretName: datadog-secret
+        keyName: app-key
+    registry: gcr.io/datadoghq
+  features:
+    apm:
+      enabled: true
+      instrumentation:
+        enabled: true
+    logCollection:
+      enabled: true
+      containerCollectAll: true
+    npm:
+      enabled: true
+    usm:
+      enabled: true
+    liveProcessCollection:
+      enabled: true
+    processDiscovery:
+      enabled: true
+    dogstatsd:
+      hostPortConfig:
+        enabled: true
+    eventCollection:
+      collectKubernetesEvents: true
+    orchestratorExplorer:
+      enabled: true
+    cspm:
+      enabled: true
+    cws:
+      enabled: true
+    admissionController:
+      enabled: true
+    asm:
+      threats:
+        enabled: true
+      sca:
+        enabled: true
+      iast:
+        enabled: true
+    serviceDiscovery:
+      enabled: true
+    otelCollector:
+      enabled: true
